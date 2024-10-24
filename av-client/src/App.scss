@@ -1,0 +1,13 @@
+.App {
+  .search-field {
+    margin: 1rem;
+  }
+
+  .search-fields-container {
+    margin-bottom: 2rem;
+  }
+
+  [class*="MuiTablePagination-spacer"] {
+    display: none;
+  }
+}
