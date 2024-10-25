@@ -5,6 +5,7 @@ const ProductModel = require('../models/product');
 router.post('/', async (req, res) => {
   try {
     const data = req.body;
+    data.model = data.model.toLowerCase();
     console.log('product data', data);
     const product = await ProductModel.findOne({
       model: data.model
@@ -32,6 +33,8 @@ router.patch('/', async (req, res) => {
       res.status(400).send('Model and count is mandatory for product updation');
     }
 
+    data.model = data.model.toLowerCase();
+
     const product = await ProductModel.findOne({
       model: data.model
     });
@@ -55,7 +58,7 @@ router.patch('/', async (req, res) => {
 
 router.get('/:model', async (req, res) => {
   try {
-    const model = req.params.model;
+    const model = req.params.model?.toLowerCase();
     if (!model) {
       res.status(400).send('Model is mandatory for product details');
     }
@@ -74,6 +77,7 @@ router.get('/:model', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     let { model = "", type = "", brand = "", description = "" } = req.query;
+    model = model?.toLowerCase();
     let filter = [];
     if(model.length) {
       filter.push({

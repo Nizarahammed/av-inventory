@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 
-const Header = () => {
+const Header = ({ toggleDrawer }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -17,6 +17,7 @@ const Header = () => {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={toggleDrawer}
           >
             <MenuIcon />
           </IconButton>
