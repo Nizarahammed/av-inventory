@@ -1,17 +1,20 @@
 import React from "react";
-import Layout from "./components/Layout";
-import SearchFields from "./components/SearchFields";
-import DataTable from "./components/DataTable";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Home from "./pages/Home";
+import AddProduct from "./pages/AddProduct";
 
 const App = () => {
-  const [products, setProducts] = React.useState([]);
-
   return (
-    <div className="App">
-      <Layout />
-      <SearchFields setProducts={setProducts} />
-      <DataTable products={products} />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
