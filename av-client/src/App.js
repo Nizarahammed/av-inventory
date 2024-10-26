@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AddProduct from "./pages/AddProduct";
 
 const App = () => {
+  console.log("App.js")
   return (
     <Router>
       <div className="App">
