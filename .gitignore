@@ -1,2 +1,3 @@
 node_modules
 av-client/node_modules
+.env
