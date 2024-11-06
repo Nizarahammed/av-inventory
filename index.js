@@ -6,6 +6,7 @@ const path = require("path");
 require('dotenv').config()
 
 const app = express()
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded())
 
@@ -21,6 +22,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./av-client/build", "index.html"));
 });
 
-app.listen('3001', () => {
+app.listen(port, () => {
     console.log('server started at port 3001');
 });
